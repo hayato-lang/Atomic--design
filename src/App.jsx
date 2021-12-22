@@ -1,9 +1,12 @@
 
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import { PrimaryButton } from './components/atoms/button/PrimaryButton';
 import { SecondaryButton } from './components/atoms/button/SecondaryButton';
 import { SearchInput } from './components/molecules/SearchInput';
 import { UserCard } from './components/organisms/user/UserCard';
+import { DefaultLayout } from './components/template/DefaultLayout';
+import { HeaderOnly } from './components/template/HeaderOnly';
 
 const user = {
   name: "勇人",
@@ -18,12 +21,14 @@ const user = {
 
 function App() {
   return (
-    <div className="App">
-      <PrimaryButton>成功</PrimaryButton>
-      <SecondaryButton>ハゲタコ</SecondaryButton>
-      <SearchInput/>
-      <UserCard user={user}/>
-    </div>
+    <BrowserRouter>
+      <DefaultLayout>
+        <PrimaryButton>成功</PrimaryButton>
+        <SecondaryButton>ハゲタコ</SecondaryButton>
+        <SearchInput/>
+        <UserCard user={user}/>
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
 
